@@ -3,10 +3,8 @@ import React from 'react'
 export default function Layout ({ children }) {
   return (
     <div>
-      <ul>
-        <li><a href="#/">home</a></li>
-        <li><a href="#/counter">counter</a></li>
-      </ul>
+      <h1>react-steps</h1>
+      <p>Data-driven React Steps Component </p>
       {children}
     </div>
   )

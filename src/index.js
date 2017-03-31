@@ -1,17 +1,44 @@
-import { AppContainer } from 'react-hot-loader'
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './App'
+import { PropTypes } from 'react'
+import LineWithIcon from './LineWithIcon'
+import Title from './Title'
 
-const rootEl = document.getElementById('root')
+import './index.less'
 
-const render = Component =>
-  ReactDOM.render(
-    <AppContainer>
-      <Component />
-    </AppContainer>,
-    rootEl
+function Steps (props) {
+  const { data, current } = props
+  function handleStatus (index) {
+    if (current === index) {
+      return 1  // happening
+    }
+    if (current >= index + 1) {
+      return 2  // has happened
+    }
+    return 0    // did not happen
+  }
+  const width = `${100 / data.length}%`
+  console.log('bar', data, data.length)
+  console.log('bar current', current)
+  return (
+    <div className="bar" style={{transform: `translateX(${100 / data.length / 2}%)`, ...props.style}}>
+      <div>
+        {data.map((d, index) => (
+          <Title key={index} title={d} width={width} status={handleStatus(index + 1)}/>
+        ))}
+      </div>
+      <div>
+        {data.map((d, index) => (
+          <LineWithIcon key={index} width={width} status={handleStatus(index + 1)}/>
+        ))}
+      </div>
+    </div>
   )
-
-render(App)
-if (module.hot) module.hot.accept()
+}
+Steps.propTypes = {
+  current: PropTypes.string,
+  data: PropTypes.array
+}
+Steps.defaultProps = {
+  current: 1,
+  data: []
+}
+module.exports = Steps

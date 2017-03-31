@@ -10,21 +10,19 @@ const config = require('./webpack.dev.config')
 
 const compiler = webpack(config)
 
-app.use(require('webpack-dev-middleware')(compiler, {
-  noInfo: true,
-  publicPath: '/'
-}))
+app.use(
+  require('webpack-dev-middleware')(compiler, {
+    noInfo: true,
+    publicPath: '/'
+  })
+)
 
 app.use(require('webpack-hot-middleware')(compiler))
-
-app.get('/index.html', function (req, res) {
-  res.sendFile(path.join(__dirname, './index.html'))
-})
 
 app.get('/libs/vendor.js', function (req, res) {
   res.sendFile(path.join(__dirname, './libs/vendor.js'))
 })
-
+app.use('/libs', express.static('libs'))
 function getUserHomeDir () {
   return process.env.HOME || process.env.USERPROFILE
 }

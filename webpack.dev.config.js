@@ -8,7 +8,7 @@ module.exports = {
   entry: {
     index: [
       'react-hot-loader/patch',
-      './src/index.js',
+      './demo/index.js',
       'webpack-hot-middleware/client?path=http://localhost/__webpack_hmr'
     ]
   },
@@ -17,6 +17,11 @@ module.exports = {
     filename: '[name].js',
     chunkFilename: 'chunk/[name].js',
     publicPath: './'
+  },
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
+    'react-router': 'ReactRouter'
   },
 
   devtool: 'source-map',
@@ -28,10 +33,6 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     // prints more readable module names in the browser console on HMR updates
 
-    new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: require('./manifest.json')
-    }),
     new HtmlWebpackPlugin({
       title: 'react-express-boilerplate',
       template: 'index.ejs'

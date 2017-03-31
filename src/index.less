@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 267853 */
+  src: url('//at.alicdn.com/t/font_u8pckl1lt0hvkj4i.eot');
+  src: url('//at.alicdn.com/t/font_u8pckl1lt0hvkj4i.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_u8pckl1lt0hvkj4i.woff') format('woff'),
+  url('//at.alicdn.com/t/font_u8pckl1lt0hvkj4i.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_u8pckl1lt0hvkj4i.svg#iconfont') format('svg');
+}
+
+.bar{
+  .title{
+    display: inline-block;
+    transform:translateX(-50%);
+    text-align: center;
+    &.active{
+      color: #dd2727;
+    }
+  }
+  .line{
+    position: relative;
+    display: inline-block;
+    &::before{
+      font-size: 14px;
+      content: '\e639';
+      font-family: 'iconfont';
+      display: inline-block;
+      position: absolute;
+      left:0;
+      top:0;
+      transform: translate(-100%,-50%);
+      background-color: #fff;
+    }
+    &::after{
+      content:' ';
+      display:block;
+      background-color: #333;
+      height: 1px;
+
+    }
+    &.finish::after{
+      background-color: #dd2727;
+    }
+    &:last-child::after{
+      height: 0;
+      display: none;
+    }
+    &.finish::before{
+      content: '\e63a';
+      color: #dd2727;
+    }
+    &.ing::before{
+      color: #dd2727;
+    }
+    
+  }
+}
