@@ -1,7 +1,7 @@
 {
   "name": "tf-react-steps",
   "version": "1.0.0",
-  "description": "Data-driven Step Component for React. Example:https://tanyafuzhou.github.io/react-steps/#/?_k=ea8d01",
+  "description": "Data-driven Step Component for React. Example:https://tanyafuzhou.github.io/react-steps",
   "main": "build/index.js",
   "scripts": {
     "dev": "sudo node ./server",

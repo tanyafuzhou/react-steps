@@ -4,6 +4,7 @@ Data-driven Step Component for React
 
 ## Example
 
+Go To https://tanyafuzhou.github.io/react-steps
 
 ## Usage
 
