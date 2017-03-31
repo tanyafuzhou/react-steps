@@ -17,7 +17,7 @@ class Steps extends Component {
   handleChange (newCode) {
     const props = /current=\{(\d)*.*data=\{(.*)\}/g.exec(newCode)
     this.setState(Object.assign({
-      data: props[2].split(','),
+      data: eval(props[2]),
       code: newCode
     }, props[1] && {current: props[1]}))
   }
