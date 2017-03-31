@@ -10,7 +10,7 @@ module.exports = {
   },
 
   output: {
-    path: path.join(__dirname, 'gh-pages'),
+    path: path.join(__dirname, 'docs'),
     filename: '[name].js',
     chunkFilename: 'chunk/[name].js',
     publicPath: './'
