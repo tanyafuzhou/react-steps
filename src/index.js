@@ -5,8 +5,10 @@ import Title from './Title'
 import './index.less'
 
 function Steps (props) {
-  const { data, current } = props
+  const { data } = props
+  const current = Number(props.current)
   function handleStatus (index) {
+    console.log('handleStatus', current, index)
     if (current === index) {
       return 1  // happening
     }

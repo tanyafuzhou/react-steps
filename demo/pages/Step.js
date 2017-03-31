@@ -16,10 +16,11 @@ class Steps extends Component {
 
   handleChange (newCode) {
     const props = /current=\{(\d)*.*data=\{(.*)\}/g.exec(newCode)
-    this.setState(Object.assign({
+    this.setState({
       data: eval(props[2]),
-      code: newCode
-    }, props[1] && {current: props[1]}))
+      code: newCode,
+      current: props[1] ? props[1] : this.state.current
+    })
   }
   render () {
     return (
