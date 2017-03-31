@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "sudo node ./server",
     "build": "sh ./build.sh",
-    "gh": "sh ./gh.sh"
+    "docs": "sh ./docs.sh"
   },
   "keywords": [
     "react",
